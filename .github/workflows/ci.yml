@@ -113,7 +113,7 @@ jobs:
           path: frontend/build/
           retention-days: 7
 
-  # ========== ПРОВЕРКА DOCKER ==========
+    # ========== ПРОВЕРКА DOCKER ==========
   docker-checks:
     runs-on: ubuntu-latest
     name: 🐳 Docker проверка
@@ -124,13 +124,18 @@ jobs:
       
       - name: ✅ Check Docker Compose syntax
         run: |
-          docker-compose -f docker-compose.yml config
+          docker compose -f docker-compose.yml config
           echo "✅ Docker Compose config is valid"
       
       - name: 📝 Check Dockerfiles exist
         run: |
           test -f backend/Dockerfile && echo "✅ backend/Dockerfile exists"
           test -f frontend/Dockerfile && echo "✅ frontend/Dockerfile exists"
+      
+      - name: 🐳 Check Docker version
+        run: |
+          docker --version
+          docker compose version
 
   # ========== ПРОВЕРКА СТРУКТУРЫ ==========
   structure-checks:
