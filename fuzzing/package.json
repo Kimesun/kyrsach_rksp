@@ -1,0 +1,12 @@
+{
+  "name": "psychologist-fuzzing",
+  "version": "1.0.0",
+  "description": "Fuzzing tests for psychologist consulting service",
+  "main": "fuzz.js",
+  "scripts": {
+    "fuzz": "node fuzz.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.2"
+  }
+}
